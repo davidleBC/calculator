@@ -1,0 +1,42 @@
+#calcBody {
+    display: flex;
+    margin: auto;
+    background-color: yellow;
+    width: 50%;
+    border: 1px solid black;
+    border-radius: 5px;
+    flex-direction: column;
+    padding: 5px;
+}
+
+#display {
+    background-color: lightblue;
+    border-radius: 5px;
+    text-align: right;
+    width: 90%;
+    padding-right: 10%;
+    align-self: center;
+    border: 1px black solid;
+
+}
+
+#clrdel {
+    display: flex;
+    flex-direction: row;
+}
+
+#clear {
+    background-color: red;
+    text-align: center;
+    width:50%;
+}
+
+#delete {
+    background-color: lightblue;
+    text-align: center;
+    width: 50%;
+}
+
+.numPad {
+  
+}
