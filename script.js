@@ -1,43 +1,8 @@
-let num1 = 0;
-let num2 = 0;
+let num1;
+let num2;
 let operator;
 let display;
 
-
-const add = function(num1, num2) {
-    return num1 + num2;    
-  };
-  
-  const subtract = function(num1, num2) {
-    return num1 - num2;
-  };
-  
-  const multiply = function(num1, num2) {
-    return num1 * num2;
-  };
-  
-  const divide = function(num1, num2) {
-    return num1 / num2;
-  };
-
-  const operate = function(num1, num2, operator) {
-    switch(operator) {
-      case "+":
-        add(num1, num2);
-        break;
-      case "-":
-        subtract(num1, num2);
-        break;    
-      case "x":
-        multiply(num1, num2);
-        break;
-      case "%":
-        divide(num1, num2);
-        break;
-    }  
-  
-  };
-  
 let plusBtn = document.querySelector('#plus');
 let subtractBtn = document.querySelector('#subtract');
 let divideBtn = document.querySelector('#divide');
@@ -57,6 +22,39 @@ let equalBtn = document.querySelector('#equal');
 let displayScrn = document.querySelector('#display');
 let clearBtn = document.querySelector('#clear');
 let deleteBtn = document.querySelector('#delete');
+
+
+const add = function(num1, num2) {
+    displayScrn.textContent = num1 + num2;    
+  };
+  
+  const subtract = function(num1, num2) {
+    displayScrn.textContent =  num1 - num2;
+  };
+  
+  const multiply = function(num1, num2) {
+    displayScrn.textContent =  num1 * num2;
+  };
+  
+  const divide = function(num1, num2) {
+    displayScrn.textContent =  num1 / num2;
+  };
+
+  const operate = function(num1, num2, operator) {
+    switch(operator) {
+      case "+":
+        add(num1, num2);
+        break;
+      case "-":
+        subtract(num1, num2);
+        break;    
+      case "x":
+        multiply(num1, num2);
+        break;
+      case "/":
+        divide(num1, num2);
+    }  
+  };
 
 oneBtn.addEventListener('click', function(event) {
   if (displayScrn.textContent == "0") {
@@ -146,3 +144,43 @@ deleteBtn.addEventListener('click', function(event){
   else {displayScrn.textContent = displayScrn.textContent.slice(0,-1)}
   });
 
+plusBtn.addEventListener('click', function(event) {
+  operator = "+";
+  if (num1 === undefined) {
+    num1 = displayScrn.textContent;
+    displayScrn.textContent = '0';
+  }
+});
+  
+subtractBtn.addEventListener('click', function(event) {
+  operator = "-";
+  if (num1 === undefined) {
+    num1 = displayScrn.textContent;
+    displayScrn.textContent = '0';
+  }
+});
+
+multiplyBtn.addEventListener('click', function(event) {
+  operator = "x";
+  if (num1 === undefined) {
+    num1 = displayScrn.textContent;
+    displayScrn.textContent = '0';
+  }
+});
+
+divideBtn.addEventListener('click', function(event) {
+  operator = "/";
+  if (num1 === undefined) {
+    num1 = displayScrn.textContent;
+    displayScrn.textContent = '0';
+  }
+});
+
+equalBtn.addEventListener('click', function(event) {
+  num2 = displayScrn.textContent;
+  num1 = Number(num1);
+  num2 = Number(num2);
+  operate(num1,num2,operator);
+  num1 = undefined;
+  num2 = undefined;  
+});
